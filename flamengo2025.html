@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Linha do tempo completa do Flamengo entre 2000 e 2025. Conheça os títulos, técnicos, jogadores, torcida e estrutura do clube." />
+  <meta name="keywords" content="Flamengo, futebol, história, títulos, jogadores, técnicos, torcida, estádio, Libertadores, Brasileirão" />
+  <meta name="author" content="RubroTech" />
+  <title>História do Flamengo - De 2000 a 2025</title>
+
+  <style>
+    /* Reset básico */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      color: #222;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* Barra fixa topo */
+    header {
+      background-color: #c8102e;
+      color: white;
+      padding: 80px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.8rem;
+      letter-spacing: 1.5px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+    }
+    header p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    nav {
+      background-color: #8b0000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-weight: 600;
+      font-size: 1rem;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover,
+    nav a:focus {
+      background-color: #c8102e;
+      outline: none;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+
+    section h2 {
+      color: #c8102e;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    /* Ícone SVG antes dos títulos */
+    section h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 30px;
+      height: 30px;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23c8102e" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L3 7v7c0 5 4 8 9 8s9-3 9-8V7l-9-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    article ul {
+      padding-left: 25px;
+      list-style-type: disc;
+      font-size: 1.1rem;
+    }
+
+    article ul li {
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      background-color: #fff8dc;
+      padding: 15px 20px;
+      border-left: 6px solid #c8102e;
+      margin: 25px 0;
+      font-style: italic;
+      font-weight: 600;
+      box-shadow: 2px 2px 8px rgba(200,16,46,0.15);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+      justify-content: center;
+    }
+
+    .gallery div {
+      flex: 1 1 calc(33% - 30px);
+      background-color: #ddd;
+      height: 150px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      color: #555;
+      box-shadow: inset 0 0 15px #bbb;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    .gallery div:hover {
+      transform: scale(1.05);
+      box-shadow: inset 0 0 25px #c8102e;
+      color: #c8102e;
+    }
+
+    /* Links promocionais com estilo */
+    .promo-links {
+      text-align: center;
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .promo-links a {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #8b0000;
+      text-decoration: none;
+      border: 2px solid #c8102e;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background-color: #f7d1d9;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+    .promo-links a:hover,
+    .promo-links a:focus {
+      background-color: #c8102e;
+      color: white;
+      outline: none;
+    }
+
+    /* Iframes centralizados */
+    .iframe-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .iframe-container iframe {
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      max-width: 100%;
+      width: 560px;
+      height: 315px;
+    }
+
+    /* FAQ */
+    #faq {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    }
+    #faq h2 {
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      margin-bottom: 18px;
+    }
+    .faq-item summary {
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 12px 15px;
+      background: #f1f1f1;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      transition: background 0.3s ease;
+    }
+    .faq-item summary:hover {
+      background: #c8102e;
+      color: white;
+    }
+    .faq-item p {
+      padding: 12px 20px 0 20px;
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #c8102e;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 1rem;
+      margin-top: 60px;
+    }
+    footer a {
+      color: #f8f8f8;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #fffcdc;
+      outline: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .gallery div {
+        flex: 1 1 calc(50% - 20px);
+      }
+      nav {
+        font-size: 0.9rem;
+        gap: 10px;
+        padding: 10px 5px;
+      }
+      main {
+        margin: 140px 15px 40px;
+        padding: 0 10px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
+      .iframe-container iframe {
+        width: 100%;
+        height: 220px;
+      }
+      .promo-links a {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .gallery div {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>História do Flamengo (2000–2025)</h1>
+  <p>Explore a evolução do Mengão nas últimas décadas: títulos, craques, técnicos e muito mais.</p>
+</header>
+
+<nav aria-label="Menu principal">
+  <a href="#anos2000">2000–2009</a>
+  <a href="#anos2010">2010–2019</a>
+  <a href="#anos2020">2020–2025</a>
+  <a href="#jogadores">Jogadores</a>
+  <a href="#tecnicos">Técnicos</a>
+  <a href="#estadio">Estádio</a>
+  <a href="#torcida">Torcida</a>
+  <a href="#estatisticas">Estatísticas</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<main>
+
+  <div class="promo-links" aria-label="Links promocionais">
+    <a href="https://remarkable-gelato-4db597.netlify.app/" target="_blank" rel="noopener noreferrer">VPS Computadores</a>
+    <a href="https://remarkable-gelato-4db597.netlify.app/segurocarro.html" target="_blank" rel="noopener noreferrer">Seguros de Carro</a>
+    <a href="https://remarkable-gelato-4db597.netlify.app/geocredisegurocarro.html" target="_blank" rel="noopener noreferrer">Seguros de Carro - GeoCredi</a>
+    <a href="https://ocomerciobrasileironoticia.blogspot.com/2025/05/erp-profissional-para-empresas.html" target="_blank" rel="noopener noreferrer">ERP para Empresas</a>
+  </div>
+
+  <div class="iframe-container" aria-label="Vídeos relacionados">
+    <iframe src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL" title="Vídeo do Flamengo - YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <!-- Corrigido iframe para não ser Youtube, é um blog, vou substituir por link clicável pois iframe de blog não funciona -->
+    <a href="https://brasilbrasileiross.blogspot.com/" target="_blank" rel="noopener noreferrer" style="width:560px; height:315px; display:flex; justify-content:center; align-items:center; background:#eee; color:#c8102e; font-weight:bold; border-radius:12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); text-decoration:none;">
+      Acesse o Blog Brasil Brasileiros
+    </a>
+
+    <iframe src="https://6839b1548942b96ea002df1d--jade-gelato-da0134.netlify.app/" title="Vídeo de Futebol - YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <section id="anos2000" tabindex="0" aria-labelledby="titulo2000">
+    <article>
+      <h2 id="titulo2000">🏆 Anos 2000</h2>
+      <ul>
+        <li>2000: Campeão da Copa Mercosul, marco importante internacional.</li>
+        <li>2001: Gol olímpico de Petkovic no Carioca, um momento histórico.</li>
+        <li>2004: Início de reestruturação administrativa com foco no profissionalismo.</li>
+        <li>2006: Campeão da Copa do Brasil após 16 anos, revigorando a torcida.</li>
+        <li>2009: Campeão do Brasileirão sob comando de Andrade.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="anos2010" tabindex="0" aria-labelledby="titulo2010">
+    <article>
+      <h2 id="titulo2010">⚽ Anos 2010</h2>
+      <ul>
+        <li>2013: Campeão da Copa do Brasil, fortalecendo o clube nacionalmente.</li>
+        <li>2016: Construção do CT Ninho do Urubu, moderno centro de treinamento.</li>
+        <li>2017: Vice-campeão da Sul-Americana, mostrando força continental.</li>
+        <li>2019: Conquista histórica da Libertadores e Brasileirão.</li>
+        <li>2019: Time estrelado por Gabigol, Bruno Henrique e Arrascaeta encantou o futebol.</li>
+      </ul>
+      <div class="highlight" role="note">Jorge Jesus foi responsável pelo melhor futebol jogado no Brasil em décadas.</div>
+    </article>
+  </section>
+
+  <section id="anos2020" tabindex="0" aria-labelledby="titulo2020">
+    <article>
+      <h2 id="titulo2020">🔥 Anos 2020</h2>
+      <ul>
+        <li>2021: Vice-campeão da Libertadores em partida emocionante.</li>
+        <li>2022: Campeão da Libertadores, reafirmando a hegemonia continental.</li>
+        <li>2023: Temporada de reformulação com Tite, focando no futuro.</li>
+        <li>2025: Filipe Luís conquista Supercopa Rei e Carioca como técnico, novo ciclo vitorioso.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="jogadores" tabindex="0" aria-labelledby="tituloJogadores">
+    <article>
+      <h2 id="tituloJogadores">👟 Craques do Mengão</h2>
+      <ul>
+        <li><strong>Adriano Imperador</strong> – ídolo do povo, potência e carisma.</li>
+        <li><strong>Petkovic</strong> – gênio nos momentos decisivos e bolas paradas.</li>
+        <li><strong>Gabigol</strong> – artilheiro da era moderna, decisivo em finais.</li>
+        <li><strong>Arrascaeta</strong> – inteligência tática e precisão nos passes.</li>
+        <li><strong>Bruno Henrique</strong> – velocidade, explosão e gols históricos.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="tecnicos" tabindex="0" aria-labelledby="tituloTecnicos">
+    <article>
+      <h2 id="tituloTecnicos">🎓 Técnicos Históricos</h2>
+      <ul>
+        <li><strong>Andrade</strong> – campeão brasileiro em 2009, liderança local.</li>
+        <li><strong>Jorge Jesus</strong> – marco na história rubro-negra, revolucionou o estilo.</li>
+        <li><strong>Tite</strong> – tentativa de recuperação tática e estrutura.</li>
+        <li><strong>Filipe Luís</strong> – início vitorioso como treinador e ex-jogador símbolo.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="estadio" tabindex="0" aria-labelledby="tituloEstadio">
+    <article>
+      <h2 id="tituloEstadio">🏟️ Novo Estádio Rubro-Negro</h2>
+      <p>Início da construção em 2025 no bairro de São Cristóvão, com capacidade para 70 mil torcedores. Previsão de entrega: 2029.</p>
+      <p>Será um dos mais modernos estádios do Brasil, com tecnologia de ponta, conforto para a torcida e área comercial.</p>
+    </article>
+  </section>
+
+  <section id="torcida" tabindex="0" aria-labelledby="tituloTorcida">
+    <article>
+      <h2 id="tituloTorcida">❤️ Torcida Rubro-Negra</h2>
+      <p>Reconhecida como a maior do mundo, com mais de 45 milhões de apaixonados. Presença constante em estádios, redes sociais e transmissões globais.</p>
+      <p>A torcida do Flamengo é conhecida por sua paixão vibrante, organizada e pelo famoso “Manto Sagrado” que veste milhões.</p>
+    </article>
+  </section>
+
+  <section id="estatisticas" tabindex="0" aria-labelledby="tituloEstatisticas">
+    <article>
+      <h2 id="tituloEstatisticas">📊 Estatísticas Gerais (2000–2025)</h2>
+      <ul>
+        <li>🏆 Títulos conquistados: 18 títulos oficiais nacionais e internacionais.</li>
+        <li>🎯 Goleador histórico no período: Gabigol, com mais de 150 gols oficiais.</li>
+        <li>📈 Participações na Libertadores: 15 vezes, sendo 3 títulos.</li>
+        <li>⚽ Média de gols por temporada: 80 gols por temporada competitiva.</li>
+        <li>👥 Média de público: 50 mil torcedores por jogo no Maracanã e outros estádios.</li>
+        <li>📅 Número de partidas oficiais no período: mais de 1.200 jogos.</li>
+        <li>💰 Receita anual média: superior a R$ 300 milhões em anos recentes.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section aria-label="Galeria de fotos e momentos históricos" tabindex="0">
+    <article>
+      <h2>🖼️ Galeria de Momentos</h2>
+      <div class="gallery">
+        <div tabindex="0" aria-label="Foto de Adriano e Petkovic em 2009">2009 - Adriano e Pet</div>
+        <div tabindex="0" aria-label="Foto da Libertadores no Peru em 2019">2019 - Libertadores no Peru</div>
+        <div tabindex="0" aria-label="Foto do tri da América em 2022">2022 - Tri da América</div>
+        <div tabindex="0" aria-label="Foto do Filipe Luís campeão em 2025">2025 - Filipe Luís campeão</div>
+        <div tabindex="0" aria-label="Foto da torcida no Maracanã">Torcida no Maracanã</div>
+        <div tabindex="0" aria-label="Foto do centro de treinamento Ninho do Urubu">Ninho do Urubu</div>
+      </div>
+    </article>
+  </section>
+
+  <section id="faq" tabindex="0" aria-labelledby="tituloFAQ">
+    <article>
+      <h2 id="tituloFAQ">❓ Perguntas Frequentes (FAQ)</h2>
+
+      <details class="faq-item">
+        <summary>Quando foi fundado o Clube de Regatas do Flamengo?</summary>
+        <p>O Flamengo foi fundado em 17 de novembro de 1895, inicialmente como um clube de regatas.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Qual o maior título internacional do Flamengo?</summary>
+        <p>A Copa Libertadores da América, conquistada em 1981, 2019 e 2022, é o maior título continental do clube.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Quem é o maior artilheiro do Flamengo na história?</summary>
+        <p>O maior artilheiro da história do Flamengo é Zico, com mais de 500 gols oficiais, seguido por Gabigol na era moderna.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Qual o estádio oficial do Flamengo?</summary>
+        <p>O estádio oficial é o Maracanã, embora o clube tenha iniciado em 2025 a construção de seu próprio estádio no bairro São Cristóvão.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Quem são os maiores ídolos recentes do clube?</summary>
+        <p>Adriano Imperador, Petkovic, Gabigol, Arrascaeta e Bruno Henrique são alguns dos maiores ídolos das últimas décadas.</p>
+      </details>
+
+    </article>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <p>&copy; 2025 Flamengo Histórico | Desenvolvido por RubroTech | Dados otimizados para SEO</p>
+  <p>
+    Siga-nos:
+    <a href="https://www.facebook.com/flamengo" target="_blank" rel="noopener noreferrer" aria-label="Facebook do Flamengo">Facebook</a> |
+    <a href="https://twitter.com/Flamengo" target="_blank" rel="noopener noreferrer" aria-label="Twitter do Flamengo">Twitter</a> |
+    <a href="https://www.instagram.com/flaoficial/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Flamengo">Instagram</a> |
+    <a href="https://www.youtube.com/user/FlamengoTV" target="_blank" rel="noopener noreferrer" aria-label="YouTube do Flamengo">YouTube</a>
+  </p>
+</footer>
+
+</body>
+</html>
