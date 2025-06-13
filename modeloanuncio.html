@@ -1,93 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Iframe Fixo com Fechamento Temporizado</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propaganda com Vídeo, Redirecionamento e Fechamento Temporizado</title>
+  <meta name="description" content="Assista ao vídeo e descubra oportunidades incríveis de crédito, consórcio e muito mais. Feche após 10 segundos.">
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: Arial, sans-serif;
-      overflow-x: hidden;
+      background-color: #f9f9f9;
     }
 
-    #iframe-wrapper {
+    #promo {
       position: fixed;
       bottom: 0;
       right: 0;
       width: 100%;
-      max-width: 400px;
-      height: calc(100vh - 20px); /* Ajuste para caber inteiro */
-      z-index: 9999;
-      border-radius: 10px 0 0 0;
-      box-shadow: -2px -2px 12px rgba(0,0,0,0.3);
+      max-width: 420px;
       background-color: #fff;
-      overflow: hidden;
+      border-top-left-radius: 10px;
+      box-shadow: -2px -2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      padding: 15px;
     }
 
-    #iframe-fixo {
+    #promo iframe {
       width: 100%;
-      height: 100%;
+      height: 215px;
       border: none;
+      border-radius: 8px;
     }
 
-    #close-btn {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.7);
+    #promoLink {
+      display: block;
+      margin-top: 12px;
+      padding: 10px;
+      background-color: #0056b3;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    #promoLink:hover {
+      background-color: #00449e;
+    }
+
+    #closeMessage {
+      text-align: center;
+      color: #555;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    #promoCloseBtn {
+      margin: 15px auto 0 auto;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background-color: #e74c3c;
       color: #fff;
       border: none;
-      border-radius: 50%;
-      font-size: 18px;
-      width: 30px;
-      height: 30px;
+      border-radius: 50px;
+      font-size: 16px;
+      width: 100%;
+      padding: 10px;
+      cursor: not-allowed;
+    }
+
+    #promoCloseBtn.enabled {
       cursor: pointer;
-      line-height: 30px;
-      text-align: center;
-      z-index: 10000;
-      display: none; /* Escondido inicialmente */
     }
 
-    #close-btn:hover {
-      background: rgba(255, 0, 0, 0.8);
+    #promoCloseBtn span {
+      margin-left: 8px;
     }
 
-    @media (max-width: 600px) {
-      #iframe-wrapper {
+    @media (max-width: 500px) {
+      #promo {
         width: 100%;
-        height: calc(100vh - 20px); /* Também se ajusta em mobile */
         border-radius: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Iframe fixo com botão de fechar temporizado -->
-<div id="iframe-wrapper">
-  <button id="close-btn" aria-label="Fechar iframe">×</button>
-  <iframe
-    id="iframe-fixo"
-    src="https://remarkable-gelato-4db597.netlify.app/modeloanuncio.html"
-    title="Anúncio Fixo Responsivo">
+<div id="promo" role="region" aria-label="Propaganda">
+  <iframe src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL"
+          title="YouTube Video Player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
   </iframe>
+
+  <a id="promoLink" href="#" target="_blank" onclick="redirectRandom(); return false;">
+    CARREGANDO OPORTUNIDADES...
+  </a>
+
+  <div id="closeMessage">Em 10 segundos você pode fechar a propaganda</div>
+
+  <button id="promoCloseBtn" aria-label="Fechar propaganda" title="Fechar propaganda">
+    × <span>Fechar Propaganda</span>
+  </button>
 </div>
 
 <script>
-  // Espera 10 segundos para exibir o botão de fechar
-  setTimeout(() => {
-    document.getElementById("close-btn").style.display = "block";
-  }, 10000);
+  const promoOptions = [
+    {
+      url: "https://remarkable-gelato-4db597.netlify.app/consorciopagina.html",
+      text: "CONFIRA VÁRIOS TIPOS DE CONSÓRCIO. SAIBA COMO FUNCIONA. ESTAMOS À DISPOSIÇÃO!"
+    },
+    {
+      url: "https://geocredibnkvitoria.com/",
+      text: "CRÉDITO PESSOAL DISPONÍVEL! FAÇA UMA SIMULAÇÃO GRATUITA."
+    },
+    {
+      url: "https://remarkable-gelato-4db597.netlify.app/redirecionadora.html",
+      text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO!"
+    }
+  ];
 
-  // Ação do botão para fechar o iframe
-  document.getElementById("close-btn").addEventListener("click", function () {
-    document.getElementById("iframe-wrapper").style.display = "none";
+  function redirectRandom() {
+    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
+    const link = document.getElementById("promoLink");
+    link.href = choice.url;
+    link.innerText = choice.text;
+    window.open(choice.url, '_blank');
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    // Carrega um texto/link aleatório inicialmente
+    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
+    const link = document.getElementById("promoLink");
+    link.href = choice.url;
+    link.innerText = choice.text;
+
+    const closeMessage = document.getElementById("closeMessage");
+    const closeBtn = document.getElementById("promoCloseBtn");
+    let closeBtnEnabled = false;
+
+    // Após 10 segundos, permite fechar
+    setTimeout(() => {
+      closeMessage.textContent = "Agora você pode fechar a propaganda.";
+      closeBtn.style.display = "flex";
+      closeBtn.classList.add("enabled");
+      closeBtn.style.cursor = "pointer";
+      closeBtnEnabled = true;
+    }, 10000);
+
+    // Clicar no botão de fechar
+    closeBtn.addEventListener("click", (e) => {
+      if (!closeBtnEnabled) {
+        e.preventDefault();
+        alert("Você só pode fechar a propaganda após 10 segundos.");
+        return false;
+      }
+      document.getElementById("promo").style.display = "none";
+    });
   });
 </script>
 
