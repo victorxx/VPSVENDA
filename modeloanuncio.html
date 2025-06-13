@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 20px;
-      padding-bottom: 300px; /* Espaço para o anúncio fixo */
+      padding-bottom: 300px; /* espaço para o anúncio flutuante */
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
     }
@@ -27,8 +27,7 @@
       padding: 15px;
       border-radius: 8px;
       box-sizing: border-box;
-      position: relative;
-      z-index: 1;
+      z-index: 0; /* garante que não fique sobre o anúncio */
     }
 
     .box img {
@@ -56,7 +55,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       font-weight: bold;
       font-size: 16px;
-      z-index: 1000;
+      z-index: 9999;
       width: 90%;
       max-width: 400px;
     }
@@ -159,7 +158,7 @@
 
 <!-- Conteúdo principal -->
 <div id="blocos">
-  <div id="box" class="box">
+  <div class="box">
     <img src="https://static.vecteezy.com/system/resources/thumbnails/044/812/078/small_2x/sleek-desktop-computer-icon-on-a-transparent-background-png.png" alt="VPS Icone">
     <p><strong>AS MELHORES VPS DO MERCADO</strong></p>
     <p>CONFIRA PREÇO JUSTO PARA VOCÊ CRESCER.</p>
@@ -179,7 +178,7 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
-  
+
   <a id="promoLink" href="#" target="_blank" onclick="redirectRandom(); return false;">
     CARREGANDO OPORTUNIDADES...
   </a>
