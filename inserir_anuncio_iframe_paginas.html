@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Iframe Fixo com Fechar</title>
+  <title>Iframe Fixo com Fechamento Temporizado</title>
   <style>
     html, body {
       margin: 0;
@@ -48,6 +48,7 @@
       line-height: 30px;
       text-align: center;
       z-index: 10000;
+      display: none; /* Escondido inicialmente */
     }
 
     #close-btn:hover {
@@ -58,17 +59,17 @@
       #iframe-wrapper {
         width: 100%;
         height: 240px;
-        bottom: 0;
+        border-radius: 0;
         left: 0;
         right: 0;
-        border-radius: 0;
+        bottom: 0;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- Iframe fixo com botão de fechar -->
+<!-- Iframe fixo com botão de fechar temporizado -->
 <div id="iframe-wrapper">
   <button id="close-btn" aria-label="Fechar iframe">×</button>
   <iframe
@@ -82,7 +83,12 @@
 <div style="height: 2000px;"></div>
 
 <script>
-  // Fecha o iframe quando o botão é clicado
+  // Espera 10 segundos para exibir o botão
+  setTimeout(() => {
+    document.getElementById("close-btn").style.display = "block";
+  }, 10000);
+
+  // Ação do botão para fechar o iframe
   document.getElementById("close-btn").addEventListener("click", function () {
     document.getElementById("iframe-wrapper").style.display = "none";
   });
