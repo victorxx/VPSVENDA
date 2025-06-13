@@ -2,12 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Anúncio Responsivo</title>
+  <title>Anúncio Responsivo com Proteção de Conteúdo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       padding: 20px;
+      padding-bottom: 300px; /* Espaço para o anúncio fixo */
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
     }
@@ -26,6 +27,8 @@
       padding: 15px;
       border-radius: 8px;
       box-sizing: border-box;
+      position: relative;
+      z-index: 1;
     }
 
     .box img {
@@ -154,17 +157,21 @@
 </head>
 <body>
 
+<!-- Conteúdo principal -->
 <div id="blocos">
-  <div class="box">
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/044/812/078/small_2x/sleek-desktop-computer-icon-on-a-transparent-background-png.png" alt="VPS">
-  </div>
-  <div class="content">
+  <div id="box" class="box">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/044/812/078/small_2x/sleek-desktop-computer-icon-on-a-transparent-background-png.png" alt="VPS Icone">
     <p><strong>AS MELHORES VPS DO MERCADO</strong></p>
     <p>CONFIRA PREÇO JUSTO PARA VOCÊ CRESCER.</p>
+  </div>
+
+  <div class="content">
+    <p>Este é um exemplo de conteúdo que acompanha o anúncio da VPS, ajustado para não ser sobreposto por elementos fixos.</p>
     <p><a href="https://remarkable-gelato-4db597.netlify.app/">VPS CONFERIR</a></p>
   </div>
 </div>
 
+<!-- Anúncio flutuante -->
 <div id="promo" role="region" aria-label="Propaganda">
   <iframe src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL"
           title="YouTube Video Player"
