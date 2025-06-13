@@ -1,0 +1,40 @@
+<style>
+  /* Contêiner que limita o tamanho */
+  #limitar {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto; /* centraliza na horizontal com espaço do topo */
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  #ads {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  #ads iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 600px) {
+    #ads iframe {
+      height: 200px;
+    }
+  }
+</style>
+
+<div id="limitar">
+  <div id="ads">
+    <iframe 
+      src="https://remarkable-gelato-4db597.netlify.app/modeloanuncio.html" 
+      title="Anúncio útil">
+    </iframe>
+  </div>
+</div>
