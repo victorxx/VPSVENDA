@@ -19,7 +19,7 @@
       right: 0;
       width: 100%;
       max-width: 400px;
-      height: 280px;
+      height: calc(100vh - 20px); /* Ajuste para caber inteiro */
       z-index: 9999;
       border-radius: 10px 0 0 0;
       box-shadow: -2px -2px 12px rgba(0,0,0,0.3);
@@ -58,7 +58,7 @@
     @media (max-width: 600px) {
       #iframe-wrapper {
         width: 100%;
-        height: 240px;
+        height: calc(100vh - 20px); /* Também se ajusta em mobile */
         border-radius: 0;
         left: 0;
         right: 0;
@@ -79,11 +79,8 @@
   </iframe>
 </div>
 
-<!-- Simula rolagem -->
-<div style="height: 2000px;"></div>
-
 <script>
-  // Espera 10 segundos para exibir o botão
+  // Espera 10 segundos para exibir o botão de fechar
   setTimeout(() => {
     document.getElementById("close-btn").style.display = "block";
   }, 10000);
