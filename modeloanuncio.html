@@ -1,116 +1,90 @@
-#promo {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #212121;
-  color: #fff;
-  padding: 15px 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-weight: bold;
-  font-size: 16px;
-  z-index: 1000;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+<style>
+  #promo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #212121;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     max-width: 50%;
-  max-height: 50%;
-}
+  }
 
-#promo:hover {
-  background-color: #333;
-  transform: scale(1.05);
-}
-#promo a {
-  color: #00e676; /* cor do link normal */
-  text-decoration: none; /* remove o sublinhado, se quiser */
-  font-weight: bold;
-}
+  #promo:hover {
+    background-color: #333;
+    transform: scale(1.05);
+  }
 
-#promo a:hover {
-  color: #69f0ae; /* cor ao passar o mouse */
-  text-decoration: underline; /* ou mantenha none */
-}
+  #promo a {
+    color: #00e676;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+  }
 
+  #promo a:hover {
+    color: #69f0ae;
+    text-decoration: underline;
+  }
+
+  #promo iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+</style>
 
 <div id="promo">
- <iframe width="100%" height="50%" src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL" title="YouTube Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-    <BR>
-        <BR>
-         <BR>
-            <BR>
-                <BR>
-                    <bR>
-            
-                  <BR>
-                    <BR>
-                        <BR>
-                            <BR>
-                    <div id="promo">
-    <a id="promoLink" href="#" onclick="redirectRandom(); return false;">
-        CARREGANDO OPORTUNIDADES...
-    </a>
+  <iframe src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL"
+          title="YouTube Video Player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
 
-
-    
-                            
+  <a id="promoLink" href="#" target="_blank" onclick="redirectRandom(); return false;">
+    CARREGANDO OPORTUNIDADES...
+  </a>
 </div>
 
 <script>
-    function redirectRandom() {
-        const options = [
-            {
-                url: "https://remarkable-gelato-4db597.netlify.app/consorciopagina.html",
-                text: "CONFIRA VÁRIOS TIPOS DE CONSÓRCIO SAIBA COMO FUNCIONA ESTAMOS A DISPOSIÇÃO"
-            },
-            {
-                url: "https://geocredibnkvitoria.com/",
-                text: "CRÉDITO PESSOAL OBTENHA SEU CRÉDITO COM FACILIDADE"
-            },
-            {
-                url: "https://remarkable-gelato-4db597.netlify.app/redirecionadora.html",
-                text: "CONFIRA ESSAS OPORTUNDADES AGORA MESMO"
-            }
-        ];
-
-        const choice = options[Math.floor(Math.random() * options.length)];
-
-        const link = document.getElementById("promoLink");
-        link.href = choice.url;
-        link.innerText = choice.text;
-
-        // Redireciona após atualizar o texto e href
-        window.location.href = choice.url;
+  const promoOptions = [
+    {
+      url: "https://remarkable-gelato-4db597.netlify.app/consorciopagina.html",
+      text: "CONFIRA VÁRIOS TIPOS DE CONSÓRCIO SAIBA COMO FUNCIONA ESTAMOS À DISPOSIÇÃO"
+    },
+    {
+      url: "https://geocredibnkvitoria.com/",
+      text: "CRÉDITO PESSOAL OBTENHA SEU CRÉDITO COM FACILIDADE"
+    },
+    {
+      url: "https://remarkable-gelato-4db597.netlify.app/redirecionadora.html",
+      text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO"
     }
+  ];
 
-    // Atualiza o texto antes mesmo do clique (opcional)
-    window.addEventListener("DOMContentLoaded", () => {
-        const options = [
-            {
-                url: "https://remarkable-gelato-4db597.netlify.app/consorciopagina.html",
-                text: "CONFIRA VÁRIOS TIPOS DE CONSÓRCIO SAIBA COMO FUNCIONA ESTAMOS A DISPOSIÇÃO"
-            },
-            {
-                url: "https://geocredibnkvitoria.com/",
-                text: "CRÉDITO PESSOAL CONFIRA ESSA OPORTUNIDADE"
-            },
-            {
-                url: "https://remarkable-gelato-4db597.netlify.app/redirecionadora.html",
-                text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO"
-            },
-        ];
-        const choice = options[Math.floor(Math.random() * options.length)];
-        const link = document.getElementById("promoLink");
-        link.href = choice.url;
-        link.innerText = choice.text;
-    });
+  function redirectRandom() {
+    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
+    const link = document.getElementById("promoLink");
+
+    link.href = choice.url;
+    link.innerText = choice.text;
+    window.open(choice.url, '_blank'); // abre em nova aba
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
+    const link = document.getElementById("promoLink");
+
+    link.href = choice.url;
+    link.innerText = choice.text;
+  });
 </script>
-
-</div>
