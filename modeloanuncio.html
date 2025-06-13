@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Anúncio Responsivo com Proteção de Conteúdo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
@@ -17,6 +17,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      justify-content: center; /* centraliza conteúdo */
     }
 
     .box {
@@ -28,19 +29,23 @@
       border-radius: 8px;
       box-sizing: border-box;
       z-index: 0; /* garante que não fique sobre o anúncio */
+      min-width: 0;
     }
 
     .box img {
       width: 100%;
       border-radius: 6px;
+      display: block;
     }
 
     .content {
       flex: 2 1 300px;
+      max-width: 600px;
       background-color: #ffffff;
       padding: 15px;
       border-radius: 8px;
       box-sizing: border-box;
+      min-width: 0; /* evita overflow */
     }
 
     /* Anúncio fixo e responsivo */
@@ -131,10 +136,13 @@
     @media (max-width: 600px) {
       #blocos {
         flex-direction: column;
+        gap: 15px;
       }
 
-      .box, .content {
+      .box,
+      .content {
         max-width: 100%;
+        flex: 1 1 100%;
       }
 
       #promo {
@@ -155,93 +163,103 @@
   </style>
 </head>
 <body>
+  <!-- Conteúdo principal -->
+  <div id="blocos">
+    <div class="box">
+      <img
+        src="https://static.vecteezy.com/system/resources/thumbnails/044/812/078/small_2x/sleek-desktop-computer-icon-on-a-transparent-background-png.png"
+        alt="VPS Icone"
+      />
+      <p><strong>AS MELHORES VPS DO MERCADO</strong></p>
+      <p>CONFIRA PREÇO JUSTO PARA VOCÊ CRESCER.</p>
+    </div>
 
-<!-- Conteúdo principal -->
-<div id="blocos">
-  <div class="box">
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/044/812/078/small_2x/sleek-desktop-computer-icon-on-a-transparent-background-png.png" alt="VPS Icone">
-    <p><strong>AS MELHORES VPS DO MERCADO</strong></p>
-    <p>CONFIRA PREÇO JUSTO PARA VOCÊ CRESCER.</p>
+    <div class="content">
+      <p>
+        Este é um exemplo de conteúdo que acompanha o anúncio da VPS, ajustado para não ser
+        sobreposto por elementos fixos.
+      </p>
+      <p>
+        <a href="https://remarkable-gelato-4db597.netlify.app/" target="_blank" rel="noopener noreferrer"
+          >VPS CONFERIR</a
+        >
+      </p>
+    </div>
   </div>
 
-  <div class="content">
-    <p>Este é um exemplo de conteúdo que acompanha o anúncio da VPS, ajustado para não ser sobreposto por elementos fixos.</p>
-    <p><a href="https://remarkable-gelato-4db597.netlify.app/">VPS CONFERIR</a></p>
+  <!-- Anúncio flutuante -->
+  <div id="promo" role="region" aria-label="Propaganda">
+    <iframe
+      src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL"
+      title="YouTube Video Player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+
+    <a id="promoLink" href="#" target="_blank" onclick="redirectRandom(); return false;">
+      CARREGANDO OPORTUNIDADES...
+    </a>
+
+    <div id="closeMessage">Em 10 segundos você pode fechar a propaganda</div>
+    <br /><br /><br />
+    <button id="promoCloseBtn" aria-label="Fechar propaganda" title="Fechar propaganda">
+      × <span>Fechar Propaganda</span>
+    </button>
   </div>
-</div>
 
-<!-- Anúncio flutuante -->
-<div id="promo" role="region" aria-label="Propaganda">
-  <iframe src="https://www.youtube.com/embed/gBclanEnn88?si=IqcWS27KWsGxKPsL"
-          title="YouTube Video Player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
+  <script>
+    const promoOptions = [
+      {
+        url: "https://remarkable-gelato-4db597.netlify.app/consorciopagina.html",
+        text: "CONFIRA VÁRIOS TIPOS DE CONSÓRCIO SAIBA COMO FUNCIONA ESTAMOS À DISPOSIÇÃO",
+      },
+      {
+        url: "https://geocredibnkvitoria.com/",
+        text: "CRÉDITO PESSOAL OBTENHA SEU CRÉDITO COM FACILIDADE",
+      },
+      {
+        url: "https://remarkable-gelato-4db597.netlify.app/redirecionadora.html",
+        text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO",
+      },
+    ];
 
-  <a id="promoLink" href="#" target="_blank" onclick="redirectRandom(); return false;">
-    CARREGANDO OPORTUNIDADES...
-  </a>
-
-  <div id="closeMessage">Em 10 segundos você pode fechar a propaganda</div>
-  <br><br><br>
-  <button id="promoCloseBtn" aria-label="Fechar propaganda" title="Fechar propaganda">
-    × <span>Fechar Propaganda</span>
-  </button>
-</div>
-
-<script>
-  const promoOptions = [
-    {
-      url: "https://remarkable-gelato-4db597.netlify.app/consorciopagina.html",
-      text: "CONFIRA VÁRIOS TIPOS DE CONSÓRCIO SAIBA COMO FUNCIONA ESTAMOS À DISPOSIÇÃO"
-    },
-    {
-      url: "https://geocredibnkvitoria.com/",
-      text: "CRÉDITO PESSOAL OBTENHA SEU CRÉDITO COM FACILIDADE"
-    },
-    {
-      url: "https://remarkable-gelato-4db597.netlify.app/redirecionadora.html",
-      text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO"
+    function redirectRandom() {
+      const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
+      const link = document.getElementById("promoLink");
+      link.href = choice.url;
+      link.innerText = choice.text;
+      window.open(choice.url, "_blank");
     }
-  ];
 
-  function redirectRandom() {
-    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
-    const link = document.getElementById("promoLink");
-    link.href = choice.url;
-    link.innerText = choice.text;
-    window.open(choice.url, '_blank');
-  }
+    window.addEventListener("DOMContentLoaded", () => {
+      const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
+      const link = document.getElementById("promoLink");
+      link.href = choice.url;
+      link.innerText = choice.text;
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
-    const link = document.getElementById("promoLink");
-    link.href = choice.url;
-    link.innerText = choice.text;
+      const closeMessage = document.getElementById("closeMessage");
+      const closeBtn = document.getElementById("promoCloseBtn");
+      let closeBtnEnabled = false;
 
-    const closeMessage = document.getElementById("closeMessage");
-    const closeBtn = document.getElementById("promoCloseBtn");
-    let closeBtnEnabled = false;
+      setTimeout(() => {
+        closeMessage.style.display = "block";
+        closeBtn.style.display = "flex";
+        closeBtn.classList.add("enabled");
+        closeBtn.style.cursor = "pointer";
+        closeBtnEnabled = true;
+      }, 10000);
 
-    setTimeout(() => {
-      closeMessage.style.display = "block";
-      closeBtn.style.display = "flex";
-      closeBtn.classList.add("enabled");
-      closeBtn.style.cursor = "pointer";
-      closeBtnEnabled = true;
-    }, 10000);
-
-    closeBtn.addEventListener("click", (e) => {
-      if (!closeBtnEnabled) {
-        e.preventDefault();
-        alert("Você só pode fechar a propaganda após 10 segundos.");
-        return false;
-      }
-      document.getElementById("promo").style.display = "none";
+      closeBtn.addEventListener("click", (e) => {
+        if (!closeBtnEnabled) {
+          e.preventDefault();
+          alert("Você só pode fechar a propaganda após 10 segundos.");
+          return false;
+        }
+        document.getElementById("promo").style.display = "none";
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
