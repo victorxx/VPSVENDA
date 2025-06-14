@@ -100,8 +100,9 @@
     allowfullscreen>
   </iframe>
 
-  <a id="promoLink" href="#" target="_blank" onclick="redirectRandom(); return false;">
-    CARREGANDO OPORTUNIDADES...
+  <!-- Link com texto e URL definidos dinamicamente ao carregar -->
+  <a id="promoLink" href="#" target="_blank">
+    CARREGANDO...
   </a>
 
   <div id="closeMessage">Em 10 segundos você pode fechar a propaganda</div>
@@ -127,24 +128,19 @@
     },
     {
       url: "https://remarkable-gelato-4db597.netlify.app/",
-      text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO!-> VPS MÁQUINA MELHOR PREÇO"
+      text: "CONFIRA ESSAS OPORTUNIDADES AGORA MESMO! → VPS MÁQUINA MELHOR PREÇO"
     }
   ];
-
-  function redirectRandom() {
-    const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
-    const link = document.getElementById("promoLink");
-    link.href = choice.url;
-    link.innerText = choice.text;
-    window.open(choice.url, '_blank');
-  }
 
   window.addEventListener("DOMContentLoaded", () => {
     const choice = promoOptions[Math.floor(Math.random() * promoOptions.length)];
     const link = document.getElementById("promoLink");
-    link.href = choice.url;
-    link.innerText = choice.text;
 
+    // Define o link e o texto corretamente uma vez só
+    link.href = choice.url;
+    link.textContent = choice.text;
+
+    // Botão de fechar ativado após 10s
     const closeMessage = document.getElementById("closeMessage");
     const closeBtn = document.getElementById("promoCloseBtn");
     let closeBtnEnabled = false;
